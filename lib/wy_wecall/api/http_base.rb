@@ -11,7 +11,7 @@ module WyWecall
           req.headers['X-YS-APIKEY'] = app_key
           req.headers['X-YS-TIME'] = ts
           req.headers['X-YS-APPTYPE'] = app_type
-          req.headers['X-YS-TIMX-YS-SIGNATURE'] = build_signature({}, body, ts, algorithm, app_secret)
+          req.headers['X-YS-TIMX-YS-SIGNATURE'] = build_signature(body, ts)
         end
       end
 
@@ -21,7 +21,7 @@ module WyWecall
           req.headers['X-YS-APIKEY'] = app_key
           req.headers['X-YS-TIME'] = ts
           req.headers['X-YS-APPTYPE'] = app_type
-          req.headers['X-YS-TIMX-YS-SIGNATURE'] = build_signature(params, {}, ts, algorithm, app_secret)
+          req.headers['X-YS-TIMX-YS-SIGNATURE'] = build_signature(params, ts)
         end
       end
 
