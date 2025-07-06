@@ -22,7 +22,37 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Ruby Common Program（irb）
+
+First Step：
+```
+require 'wy_wecall'
+```
+Second Step：
+```
+$wecall_client = WyWecall::Client.new(
+    app_key: 'app_key',
+    app_secret: 'app_secret',
+    app_type: 'app_type',
+    base_url: 'https://b.163.com',
+    debug_flag: true,
+    algorithm: 'SHA256',
+    connection_adapter: Faraday.default_adapter,
+    headers: { 'Content-Type' => 'application/json' },
+    timeout: 10,
+    open_timeout: 10,
+    api_path: '/open/api/wecall',
+    api_version: 'v1'
+)
+```
+Request Account info
+```
+$wecall_client.query_account
+```
+Return
+```
+boyd = {\"requestId\":\"7f1c70ba5db7413783\",\"code\":200,\"msg\":\"success\",\"data\":{\"status\":\"AVAILABLE\",\"updateTime\":1751448326000}}
+```
 
 ## Development
 
