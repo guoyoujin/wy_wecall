@@ -26,15 +26,15 @@ module WyWecall
       @app_key            = options[:app_key] || WyWecall.configuration.app_key
       @app_secret         = options[:app_secret] || WyWecall.configuration.app_secret
       @app_type           = options[:app_type]  || WyWecall.configuration.app_type
-      @algorithm          = options[:algorithm] || WyWecall.configuration.algorithm
-      @headers            = options[:headers] || WyWecall.configuration.headers
+      @algorithm          = options[:algorithm] || WyWecall.configuration.algorithm || WyWecall::Configuration::DEFAULT_ALGORITHM
+      @headers            = options[:headers] || WyWecall.configuration.headers || WyWecall::Configuration::DEFAULT_HEADERS
       @base_url           = options[:base_url] || WyWecall.configuration.base_url || WyWecall::Configuration::DEFAULT_BASE_URL
-      @connection_adapter = options[:connection_adapter] || WyWecall.configuration.connection_adapter
-      @timeout            = options[:timeout] || WyWecall.configuration.timeout
-      @open_timeout       = options[:open_timeout] || WyWecall.configuration.open_timeout
+      @connection_adapter = options[:connection_adapter] || WyWecall.configuration.connection_adapter || WyWecall::Configuration::DEFAULT_CONNECTION_ADAPTER
+      @timeout            = options[:timeout] || WyWecall.configuration.timeout || WyWecall::Configuration::DEFAULT_TIMEOUT
+      @open_timeout       = options[:open_timeout] || WyWecall.configuration.open_timeout || WyWecall::Configuration::DEFAULT_OPEN_TIMEOUT
       @api_path           = options[:api_path] || WyWecall.configuration.api_path || WyWecall::Configuration::DEFAULT_API_PATH
       @api_version        = options[:api_version] || WyWecall.configuration.api_version || WyWecall::Configuration::DEFAULT_API_VERSION
-      @debug_flag         = options[:debug_flag] || WyWecall.configuration.debug_flag
+      @debug_flag         = options[:debug_flag] || WyWecall.configuration.debug_flag || WyWecall::Configuration::DEFAULT_DEBUG_FLAG
     end
 
     def log_debug(message)
