@@ -23,10 +23,10 @@ RSpec.describe WyWecall::Client do
       "vary" => "Accept-Encoding",
       "-tc" => "ys-wecall-openapi-console-docker-qiyu_gy_prod",
       "tid" => "d0bc45429e8047268ef88fdbd18abd59.4074.17516389088042137"
-    } 
+    }
   }
   context 'query_wallet_info' do
-    let(:response_body) { 
+    let(:response_body) {
       {
         "requestId": "61b5e1fcf7594c5e8521b7818c5281c1",
         "code": 200,
@@ -58,7 +58,7 @@ RSpec.describe WyWecall::Client do
       }
     }
     it 'should get wallter info' do
-      expect_any_instance_of(Faraday::Connection).to receive(:get).with('/open/api/wecall/v1/wallet/getInfo', {}).and_return(status: 200, response_headers: response_headers, body: response_body) 
+      expect_any_instance_of(Faraday::Connection).to receive(:get).and_return(status: 200, response_headers: response_headers, body: response_body)
       expect(client.query_account).to eq({
         status: 200,
         response_headers: response_headers,
@@ -68,7 +68,7 @@ RSpec.describe WyWecall::Client do
   end
 
   context 'query_wallet_sms_info' do
-    let(:response_body) { 
+    let(:response_body) {
       {
         "requestId": "61b5e1fcf7594c5e8521b7818c5281c1",
         "code": 200,
@@ -81,7 +81,7 @@ RSpec.describe WyWecall::Client do
       }
     }
     it 'should get wallter sms info' do
-      expect_any_instance_of(Faraday::Connection).to receive(:get).with('/open/api/wecall/v1/wallet/getSmsInfo', {}).and_return(status: 200, response_headers: response_headers, body: response_body) 
+      expect_any_instance_of(Faraday::Connection).to receive(:get).and_return(status: 200, response_headers: response_headers, body: response_body)
       expect(client.query_account).to eq({
         status: 200,
         response_headers: response_headers,

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'faraday'
 module WyWecall
   class Configuration
     DEFAULT_BASE_URL = 'https://b.163.com'
